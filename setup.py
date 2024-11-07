@@ -8,8 +8,8 @@ import sys
 # Define the URL for the binary based on the platform
 METHYLATION_UTILS_URL = {
     "Linux": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.2/methylation_utils",
-    "Windows": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.2/methylation_utils.exe",
-    "Darwin": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.2/methylation_utils",
+    # "Windows": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.2/methylation_utils.exe",
+    # "Darwin": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.2/methylation_utils",
 }
 
 def download_methylation_utils(url, dest_path):
