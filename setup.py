@@ -52,7 +52,7 @@ class InstallCommand(install):
 
 setup(
     name="pymethylation_utils",
-    version="v0.1.0",
+    version="v0.1.1",
     description="Python wrapper for the methylation_utils Rust binary",
     author="Sebastian Dall",
     author_email="semoda@bio.aau.dk",
