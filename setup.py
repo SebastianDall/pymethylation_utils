@@ -7,9 +7,9 @@ import sys
 
 # Define the URL for the binary based on the platform
 METHYLATION_UTILS_URL = {
-    "Linux": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.2/methylation_utils",
-    # "Windows": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.2/methylation_utils.exe",
-    # "Darwin": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.2/methylation_utils",
+    "Linux": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.3/methylation_utils",
+    "Windows": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.3/methylation_utils.exe",
+    "Darwin": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.3/methylation_utils",
 }
 
 def download_methylation_utils(url, dest_path):
@@ -52,7 +52,7 @@ class InstallCommand(install):
 
 setup(
     name="pymethylation_utils",
-    version="0.1.0",
+    version="v0.1.0",
     description="Python wrapper for the methylation_utils Rust binary",
     author="Sebastian Dall",
     author_email="semoda@bio.aau.dk",

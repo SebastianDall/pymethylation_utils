@@ -1,4 +1,4 @@
-methylation_utils_wrapper/bin
+methylation_utils_wrapper/bin/methylation_utils*
 !methylation_utils_wrapper/bin/.gitkeep
  
 #  # Byte-compiled / optimized / DLL files
