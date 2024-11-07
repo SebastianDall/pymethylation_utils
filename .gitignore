@@ -1,4 +1,7 @@
-# Byte-compiled / optimized / DLL files
+methylation_utils_wrapper/bin
+!methylation_utils_wrapper/bin/.gitkeep
+ 
+#  # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
