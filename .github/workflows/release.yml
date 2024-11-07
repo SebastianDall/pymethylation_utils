@@ -30,7 +30,7 @@ jobs:
           pip install build twine
 
       - name: build package
-        run: python -m build --wheel --output-dir dist
+        run: python -m build --wheel --outdir dist
 
       # - name: Publish
       #   if: startsWith(github.ref, 'refs/rags/')
