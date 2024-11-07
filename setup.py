@@ -28,29 +28,6 @@ def download_methylation_utils(url, dest_path):
         print(f"An error occurred while downloading binary: {e}")
         sys.exit(1)
 
-# class InstallCommand(install):
-#     """Custom installation command to download the methylation_utils binary."""
-#     def run(self):
-#         # Determine the binary URL based on the platform
-#         system = platform.system()
-#         binary_url = METHYLATION_UTILS_URL.get(system)
-#         if not binary_url:
-#             sys.exit(f"Unsupported platform: {system}")
-
-#         # Define the destination path for the binary
-#         bin_dir = os.path.join(self.install_lib, "methylation_utils_wrapper", "bin")
-#         os.makedirs(bin_dir, exist_ok=True)
-#         dest_path = os.path.join(bin_dir, "methylation_utils")
-#         if system == "Windows":
-#             dest_path += ".exe"
-
-#         # Download the binary
-#         download_methylation_utils(binary_url, dest_path)
-
-#         # Continue with the standard installation
-#         super().run()
-
-        
 class BuildCommand(build_py):
     """Custom build command to download the binary during the build process."""
     def run(self):
@@ -80,6 +57,9 @@ setup(
     author_email="semoda@bio.aau.dk",
     packages=find_packages(),
     include_package_data=True,
+    package_data={'methylation_utils_wrapper': [
+        "bin/*"
+    ]},
     cmdclass={
         'build_py': BuildCommand,
     },
