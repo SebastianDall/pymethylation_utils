@@ -4,6 +4,12 @@ import subprocess
 import platform
 import logging
 
+UTIL_NAME = {
+    "Linux": "methylation_utils-linux",
+    "Windows": "methylation_utils-windows.exe",
+    "Darwin": "methylation_utils-macos",
+}
+
 def run_methylation_utils(
     pileup,
     assembly,
@@ -14,12 +20,11 @@ def run_methylation_utils(
 ):
     logger = logging.getLogger(__name__)
     system = platform.system()
-    tool = "methylation_utils"
-    if system == "Windows":
-        tool += ".exe"
 
     # Path to the downloaded binary
     bin_dir = os.path.join(os.path.dirname(__file__), "bin")
+
+    tool = UTIL_NAME[system]
     bin_path = os.path.join(bin_dir, tool)
 
     # Configure environment
