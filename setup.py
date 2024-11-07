@@ -51,7 +51,7 @@ class BuildCommand(build_py):
 
 setup(
     name="pymethylation_utils",
-    version="v0.1.3",
+    version="v0.1.4",
     description="Python wrapper for the methylation_utils Rust binary",
     author="Sebastian Dall",
     author_email="semoda@bio.aau.dk",
