@@ -1,5 +1,7 @@
 on:
   push:
+    branches:
+      - main
     tags:
       - "v*"
 
@@ -12,12 +14,48 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         include:
+            # ubuntu
           - os: ubuntu-latest
-            target: x86_64-unknown-linux-gnu
-          - os: windows-latest
-            target: x86_64-pc-windows-gnu
-          - os: macos-latest
-            target: x86_64-apple-darwin
+            python: 39
+            platform_id: manylinux_x86_64
+          # - os: ubuntu-latest
+          #   python: 310
+          #   platform_id: manylinux_x86_64
+          # - os: ubuntu-latest
+          #   python: 311
+          #   platform_id: manylinux_x86_64
+          # - os: ubuntu-latest
+          #   python: 312
+          #   platform_id: manylinux_x86_64
+            
+          #   # windows
+          # - os: windows-latest
+          #   python: 39
+          #   platform_id: win_amd64
+          # - os: windows-latest
+          #   python: 310
+          #   platform_id: win_amd64
+          # - os: windows-latest
+          #   python: 311
+          #   platform_id: win_amd64
+          # - os: windows-latest
+          #   python: 312
+          #   platform_id: win_amd64
+            
+          #   # macos
+          # - os: macos-latest
+          #   python: 39
+          #   platform_id: macosx_x86_64
+          # - os: macos-latest
+          #   python: 310
+          #   platform_id: macosx_x86_64
+          # - os: macos-latest
+          #   python: 311
+          #   platform_id: macosx_x86_64
+          # - os: macos-latest
+          #   python: 312
+          #   platform_id: macosx_x86_64
+            
 
     steps:
       - name: Check out the repository
@@ -25,12 +63,6 @@ jobs:
 
       - name: Set up python
         uses: actions/setup-python@v5
-        with:
-          python-version:
-            - '3.12'
-            - '3.11'
-            - '3.10'
-            - '3.9'
 
       - name: install dependencies
         run: |
@@ -38,6 +70,8 @@ jobs:
           pip install cibuildwheel
 
       - name: build package
+        env:
+          CIBW_BUILD: "cp${{ matrix.python }}-${{ matrix.platform_id }}"
         run: python -m cibuildwheel --output-dir dist
 
       - name: Publish
