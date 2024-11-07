@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-from setuptools.command.install import install
+from setuptools.command.build_py import build_py
 import os
 import platform
 import urllib.request
@@ -28,8 +28,31 @@ def download_methylation_utils(url, dest_path):
         print(f"An error occurred while downloading binary: {e}")
         sys.exit(1)
 
-class InstallCommand(install):
-    """Custom installation command to download the methylation_utils binary."""
+# class InstallCommand(install):
+#     """Custom installation command to download the methylation_utils binary."""
+#     def run(self):
+#         # Determine the binary URL based on the platform
+#         system = platform.system()
+#         binary_url = METHYLATION_UTILS_URL.get(system)
+#         if not binary_url:
+#             sys.exit(f"Unsupported platform: {system}")
+
+#         # Define the destination path for the binary
+#         bin_dir = os.path.join(self.install_lib, "methylation_utils_wrapper", "bin")
+#         os.makedirs(bin_dir, exist_ok=True)
+#         dest_path = os.path.join(bin_dir, "methylation_utils")
+#         if system == "Windows":
+#             dest_path += ".exe"
+
+#         # Download the binary
+#         download_methylation_utils(binary_url, dest_path)
+
+#         # Continue with the standard installation
+#         super().run()
+
+        
+class BuildCommand(build_py):
+    """Custom build command to download the binary during the build process."""
     def run(self):
         # Determine the binary URL based on the platform
         system = platform.system()
@@ -38,8 +61,7 @@ class InstallCommand(install):
             sys.exit(f"Unsupported platform: {system}")
 
         # Define the destination path for the binary
-        bin_dir = os.path.join(self.install_lib, "methylation_utils_wrapper", "bin")
-        os.makedirs(bin_dir, exist_ok=True)
+        bin_dir = os.path.join("methylation_utils_wrapper", "bin")
         dest_path = os.path.join(bin_dir, "methylation_utils")
         if system == "Windows":
             dest_path += ".exe"
@@ -47,7 +69,7 @@ class InstallCommand(install):
         # Download the binary
         download_methylation_utils(binary_url, dest_path)
 
-        # Continue with the standard installation
+        # Continue with the standard build
         super().run()
 
 setup(
@@ -59,7 +81,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     cmdclass={
-        'install': InstallCommand,
+        'build_py': BuildCommand,
     },
     install_requires=[],
 )
