@@ -24,10 +24,6 @@ def run_methylation_utils(
         tool += ".exe"
     bin_path = os.path.join(bin_dir, tool)
 
-    # Configure environment
-    env = os.environ.copy()
-    env["POLARS_MAX_THREADS"] = str(threads)
-
     logger.info("Running methylation_utils")
     try:
         cmd_args = [
@@ -39,7 +35,8 @@ def run_methylation_utils(
             "--output", os.path.join(output, "motifs-scored-read-methylation.tsv")
         ]
 
-        subprocess.run([bin_path] + cmd_args, check=True, env=env)
+        print([bin_path] + cmd_args)
+        subprocess.run([bin_path] + cmd_args, check=True)
     except subprocess.CalledProcessError as e:
         logger.error(f"Command '{e.cmd}' failed with return code {e.returncode}")
         logger.error(f"Output: {e.output}")
