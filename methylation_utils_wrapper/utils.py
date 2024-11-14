@@ -32,10 +32,9 @@ def run_methylation_utils(
             "--motifs", *motifs,
             "--threads", str(threads),
             "--min-valid-read-coverage", str(min_valid_read_coverage),
-            "--output", os.path.join(output, "motifs-scored-read-methylation.tsv")
+            "--output", output
         ]
 
-        print([bin_path] + cmd_args)
         subprocess.run([bin_path] + cmd_args, check=True)
     except subprocess.CalledProcessError as e:
         logger.error(f"Command '{e.cmd}' failed with return code {e.returncode}")
