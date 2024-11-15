@@ -13,14 +13,22 @@ jobs:
 
       - name: Set up python
         uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
 
       - name: install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install build twine
+          pip install build twine pytest
 
       - name: build package
         run: python -m build --wheel --outdir dist
+
+      - name: install package
+        run: pip install dist/*.whl
+
+      - name: run pytest
+        run: pytest tests/
 
       - name: Publish
         if: startsWith(github.ref, 'refs/tags/')
