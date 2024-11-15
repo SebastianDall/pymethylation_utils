@@ -21,9 +21,7 @@ def download_methylation_utils():
 
     
     bin_dir = os.path.join(os.path.dirname(__file__), "bin")
-
-    if not os.path.exists(bin_dir, exist_ok=True):
-        os.makedirs(bin_dir)
+    os.makedirs(bin_dir,exist_ok=True)
     
     dest_path = os.path.join(bin_dir, "methylation_utils")
     if system == "Windows":
