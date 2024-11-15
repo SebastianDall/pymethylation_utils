@@ -35,9 +35,11 @@ def run_methylation_utils(
             "--output", output
         ]
 
-        subprocess.run([bin_path] + cmd_args, check=True)
+        subprocess.run([bin_path] + cmd_args, check=True, capture_output=True, text=True)
+        return 0
     except subprocess.CalledProcessError as e:
         logger.error(f"Command '{e.cmd}' failed with return code {e.returncode}")
-        logger.error(f"Output: {e.output}")
+        logger.error(f"Stdout: {e.stdout}")
+        logger.error(f"Stderr: {e.stderr}")
         return e.returncode
 
