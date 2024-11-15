@@ -38,13 +38,16 @@ def cleanup_output():
         os.remove(outfile)
 
 def test_actual_run(cleanup_output):
-    print("Current working directory:", os.getcwd())
-    print("File exists:", os.path.exists("methylation_utils_wrapper/data/geobacillus-plasmids.pileup.bed"))
-    print("File exists:", os.path.exists("methylation_utils_wrapper/data/geobacillus-plasmids.assembly.fasta"))
+    data_dir = os.path.join(os.path.dirname(__file__), "data")
+
+    bed = os.path.join(data_dir,"geobacillus-plasmids.pileup.bed")
+    assembly = os.path.join(data_dir,"geobacillus-plasmids.assembly.fasta")
+    print("File exists:", os.path.exists(bed))
+    print("File exists:", os.path.exists(assembly))
 
     code = run_methylation_utils(
-        "methylation_utils_wrapper/data/geobacillus-plasmids.pileup.bed",
-        "methylation_utils_wrapper/data/geobacillus-plasmids.assembly.fasta",
+        bed,
+        assembly,
         ["GATC_a_1"],
         1,
         1,
