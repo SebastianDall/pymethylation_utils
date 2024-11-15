@@ -9,7 +9,8 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     package_data={'methylation_utils_wrapper': [
-        "bin/*"
+        "bin/*",
+        "data/*"
     ]},
     install_requires=[],
 )
