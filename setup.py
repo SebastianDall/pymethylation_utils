@@ -8,7 +8,7 @@ setup(
     author_email="semoda@bio.aau.dk",
     packages=find_packages(),
     include_package_data=True,
-    package_data={'methylation_utils_wrapper': [
+    package_data={'pymethylation_utils': [
         "bin/*"
     ]},
     install_requires=[],
