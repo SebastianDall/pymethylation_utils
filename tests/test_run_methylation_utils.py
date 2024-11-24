@@ -1,4 +1,4 @@
-from methylation_utils_wrapper.utils import run_methylation_utils
+from pymethylation_utils.utils import run_methylation_utils
 import pytest
 import os
 import platform
@@ -22,7 +22,7 @@ def test_file_exists():
         tool += ".exe"
 
     bin_dir = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), "..", "methylation_utils_wrapper", "bin")
+        os.path.join(os.path.dirname(__file__), "..", "pymethylation_utils", "bin")
     )
     tool_path = os.path.join(bin_dir, tool)
 
