@@ -26,7 +26,7 @@ Example
 Here’s an example usage in Python:
 
 ```python
-from methylation_utils_wrapper.utils import run_methylation_utils
+from pymethylation_utils.utils import run_methylation_utils
 
 run_methylation_utils(
     pileup="path/to/pileup.bed",
