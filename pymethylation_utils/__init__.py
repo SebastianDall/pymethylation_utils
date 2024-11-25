@@ -4,6 +4,8 @@ import os
 import platform
 import urllib.request
 import sys
+import subprocess
+import re
 
 # Define the URL for the binary based on the platform
 METHYLATION_UTILS_URL = {
@@ -12,6 +14,20 @@ METHYLATION_UTILS_URL = {
     "Darwin": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.5/methylation_utils-macos",
 }
 
+def extract_version_from_url(url):
+    match = re.search(r"v(\d+\.\d+\.\d+)", url)
+    return match.group(1) if match else None
+
+def check_installed_binary_version(path):
+    try:
+        result = subprocess.run(
+            [path, "--version"], capture_output=True, text=True, check=True
+        )
+        version = result.stdout.strip()
+        return version.split()[-1] if " " in version else None
+    except Exception as e:
+        print(f"failed to get version of methylation_utils at {path}: {e}")
+    
 def download_methylation_utils():
     """Download the binary from the provided URL to the destination path."""
     system = platform.system()
@@ -27,6 +43,17 @@ def download_methylation_utils():
     if system == "Windows":
         dest_path += ".exe"
 
+    installed_version = None
+    if os.path.exists(dest_path):
+        installed_version = check_installed_binary_version(dest_path)
+        installed_version = installed_version
+
+        expected_version = extract_version_from_url(binary_url)
+        if installed_version != expected_version:
+            print(f"Installed version ({installed_version}) does not match expected version ({expected_version})")
+            print("Removing installed version")
+            os.remove(dest_path)
+        
 
     if not os.path.exists(dest_path):
         try:

@@ -1,5 +1,5 @@
-methylation_utils_wrapper/bin/methylation_utils*
-!methylation_utils_wrapper/bin/.gitkeep
+pymethylation_utils/bin/methylation_utils*
+!pymethylation_utils/bin/.gitkeep
  
 #  # Byte-compiled / optimized / DLL files
 __pycache__/
