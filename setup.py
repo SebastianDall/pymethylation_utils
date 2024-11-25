@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="pymethylation_utils",
-    version="v0.2.3",
+    version="v0.2.4",
     description="Python wrapper for the methylation_utils Rust binary",
     author="Sebastian Dall",
     author_email="semoda@bio.aau.dk",
