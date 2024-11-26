@@ -9,9 +9,9 @@ import re
 
 # Define the URL for the binary based on the platform
 METHYLATION_UTILS_URL = {
-    "Linux": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.5/methylation_utils-linux",
-    "Windows": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.5/methylation_utils-windows.exe",
-    "Darwin": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.5/methylation_utils-macos",
+    "Linux": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.6/methylation_utils-linux",
+    "Windows": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.6/methylation_utils-windows.exe",
+    "Darwin": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.2.6/methylation_utils-macos",
 }
 
 def extract_version_from_url(url):
