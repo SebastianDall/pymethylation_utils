@@ -1,3 +1,4 @@
+![PyPI version](https://img.shields.io/pypi/v/pymethylation_utils)
 # pymethylation_utils
 pymethylation_utils is a Python wrapper package for the methylation_utils binary, a Rust-based tool designed for handling DNA methylation data. This package simplifies the process of downloading, installing, and running methylation_utils from within Python projects.
 
