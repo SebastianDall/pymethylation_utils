@@ -5,12 +5,12 @@ import platform
 
 def test_run_methylation_utils(capsys):
     code = run_methylation_utils(
-        "p",
-        "a",
-        ["m"],
-        1,
-        1,
-        "out.csv"
+        pileup = "p",
+        assembly = "a",
+        motifs = ["m"],
+        threads = 1,
+        min_valid_read_coverage = 1,
+        output = "out.csv"
     )
 
     assert code == 1, "The function did not fail"
@@ -46,12 +46,12 @@ def test_actual_run(cleanup_output):
     print("File exists:", os.path.exists(assembly))
 
     code = run_methylation_utils(
-        bed,
-        assembly,
-        ["GATC_a_1"],
-        1,
-        1,
-        cleanup_output
+        pileup = bed,
+        assembly = assembly,
+        motifs = ["GATC_a_1"],
+        threads = 1,
+        min_valid_read_coverage = 1,
+        output = cleanup_output
     )
 
     assert code == 0

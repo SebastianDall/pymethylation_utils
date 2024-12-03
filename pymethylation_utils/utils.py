@@ -34,7 +34,7 @@ def run_methylation_utils(
             "--threads", str(threads),
             "--min-valid-read-coverage", str(min_valid_read_coverage),
             "--output", output,
-            "--batches", batches
+            "--batches", str(batches)
         ]
 
         subprocess.run([bin_path] + cmd_args, check=True, text=True)
