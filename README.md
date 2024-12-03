@@ -23,6 +23,7 @@ Once installed, you can import pymethylation_utils and use the run_methylation_u
  - `threads`: Number of threads for parallel processing.
  - `min_valid_read_coverage`: Minimum valid read coverage threshold.
  - `output`: Path to where the output tsv file should be saved.
+ - `batches`: Number of contigs to load at a time. Lower number will reduce RAM usage. 0 means no batching.
 Example
 Here’s an example usage in Python:
 
@@ -35,7 +36,8 @@ run_methylation_utils(
     motifs=["GATC_a_1", "RGATCY_m_4"],
     threads=4,
     min_valid_read_coverage=3,
-    output="path/to/output.tsv"
+    output="path/to/output.tsv",
+    batches=0
 )
 ```
 This will generate an output file named motifs-scored-read-methylation.tsv in the specified output directory.

@@ -11,7 +11,8 @@ def run_methylation_utils(
     motifs,
     threads,
     min_valid_read_coverage,
-    output
+    output,
+    batches = 0
 ):
     logger = logging.getLogger(__name__)
     system = platform.system()
@@ -32,7 +33,8 @@ def run_methylation_utils(
             "--motifs", *motifs,
             "--threads", str(threads),
             "--min-valid-read-coverage", str(min_valid_read_coverage),
-            "--output", output
+            "--output", output,
+            "--batches", batches
         ]
 
         subprocess.run([bin_path] + cmd_args, check=True, text=True)
