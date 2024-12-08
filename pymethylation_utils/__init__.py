@@ -1,4 +1,4 @@
-__version__ = "v0.3.1"
+__version__ = "v0.4.0"
 
 import os
 import platform
