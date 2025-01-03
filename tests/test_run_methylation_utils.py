@@ -17,7 +17,7 @@ def test_run_methylation_utils(capsys):
 
 def test_file_exists():
     system = platform.system()
-    tool = "methylation_utils"
+    tool = "epimethus"
     if system == "Windows":
         tool += ".exe"
 

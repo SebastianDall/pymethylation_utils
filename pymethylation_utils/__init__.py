@@ -8,10 +8,10 @@ import subprocess
 import re
 
 # Define the URL for the binary based on the platform
-METHYLATION_UTILS_URL = {
-    "Linux": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.4.0/methylation_utils-linux",
-    "Windows": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.4.0/methylation_utils-windows.exe",
-    "Darwin": "https://github.com/SebastianDall/methylation_utils/releases/download/v0.4.0/methylation_utils-macos",
+EPIMETHEUS_URL = {
+    "Linux": "https://github.com/SebastianDall/epimetheus/releases/download/v0.4.0/epimetheus-linux",
+    "Windows": "https://github.com/SebastianDall/epimetheus/releases/download/v0.4.0/epimetheus-windows.exe",
+    "Darwin": "https://github.com/SebastianDall/epimetheus/releases/download/v0.4.0/epimetheus-macos",
 }
 
 def extract_version_from_url(url):
@@ -26,12 +26,12 @@ def check_installed_binary_version(path):
         version = result.stdout.strip()
         return version.split()[-1] if " " in version else None
     except Exception as e:
-        print(f"failed to get version of methylation_utils at {path}: {e}")
+        print(f"failed to get version of epimetheus at {path}: {e}")
     
-def download_methylation_utils():
+def download_epimetheus():
     """Download the binary from the provided URL to the destination path."""
     system = platform.system()
-    binary_url = METHYLATION_UTILS_URL.get(system)
+    binary_url = EPIMETHEUS_URL.get(system)
     if not binary_url:
         sys.exit(f"Unsupported platform: {system}")
 
@@ -39,7 +39,7 @@ def download_methylation_utils():
     bin_dir = os.path.join(os.path.dirname(__file__), "bin")
     os.makedirs(bin_dir,exist_ok=True)
     
-    dest_path = os.path.join(bin_dir, "methylation_utils")
+    dest_path = os.path.join(bin_dir, "epimetheus")
     if system == "Windows":
         dest_path += ".exe"
 
@@ -71,4 +71,4 @@ def download_methylation_utils():
             sys.exit(1)
 
 
-download_methylation_utils()
+download_epimetheus()

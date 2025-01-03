@@ -1,17 +1,21 @@
-![PyPI version](https://img.shields.io/pypi/v/pymethylation_utils)
+[![Anaconda-Server Badge](https://anaconda.org/bioconda/pymethylation_utils/badges/version.svg)](https://anaconda.org/bioconda/pymethylation_utils)      [![PyPI version](https://badge.fury.io/py/pymethylation_utils.svg)](https://badge.fury.io/py/pymethylation_utils)
 # pymethylation_utils
-pymethylation_utils is a Python wrapper package for the methylation_utils binary, a Rust-based tool designed for handling DNA methylation data. This package simplifies the process of downloading, installing, and running methylation_utils from within Python projects.
+pymethylation_utils is a Python wrapper package for the [epimetheus](https://github.com/SebastianDall/epimetheus) binary, a Rust-based tool designed for handling DNA methylation data. This package simplifies the process of downloading, installing, and running `epimetheus` from within Python projects.
 
 ## Features
- - Automatic Binary Download: The correct version of the methylation_utils binary is downloaded automatically during package installation based on the operating system.
- - Easy Integration: Provides a convenient Python function for calling methylation_utils, with all necessary parameters.
+ - Automatic Binary Download: The correct version of the epimetheis binary is downloaded automatically during package installation based on the operating system.
+ - Easy Integration: Provides a convenient Python function for calling epimetheus, with all necessary parameters.
  - Multi-Platform Support: Works on Linux, macOS, and Windows.
 
 ## Installation
-To install pymethylation_utils, you can use pip. The package will automatically download the correct binary for your system during installation.
+To install pymethylation_utils, you can use pip or conda. The package will automatically download the correct binary for your system during installation.
 
 ```bash
 pip install pymethylation_utils
+
+# or
+
+conda install -c bioconda pymethylation_utils
 ```
 
 ## Usage
@@ -43,7 +47,7 @@ run_methylation_utils(
 This will generate an output file named motifs-scored-read-methylation.tsv in the specified output directory.
 
 ## How It Works
-The installation process uses a custom command to download the correct version of the methylation_utils binary based on your operating system:
+The installation process uses a custom command to download the correct version of the `epimetheus` binary based on your operating system:
 
  - Linux: Downloads the Linux binary from GitHub.
  - macOS: Downloads the macOS binary.
