@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="pymethylation_utils",
-    version="v0.5.0",
+    version="v0.5.1",
     description="Python wrapper for the epimetheus Rust binary",
     author="Sebastian Dall",
     author_email="semoda@bio.aau.dk",
