@@ -12,7 +12,7 @@ def run_epimetheus(
     threads,
     min_valid_read_coverage,
     output,
-    batches = 0
+    batch_size = 1000
 ):
     logger = logging.getLogger(__name__)
     system = platform.system()
@@ -35,7 +35,7 @@ def run_epimetheus(
             "--threads", str(threads),
             "--min-valid-read-coverage", str(min_valid_read_coverage),
             "--output", output,
-            "--batch-size", str(batches)
+            "--batch-size", str(batch_size)
         ]
 
         subprocess.run([bin_path] + cmd_args, check=True, text=True)

@@ -41,7 +41,7 @@ run_methylation_utils(
     threads=4,
     min_valid_read_coverage=3,
     output="path/to/output.tsv",
-    batches=0
+    batch_size=1000
 )
 ```
 This will generate an output file named motifs-scored-read-methylation.tsv in the specified output directory.
