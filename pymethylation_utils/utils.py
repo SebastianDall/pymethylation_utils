@@ -35,7 +35,7 @@ def run_epimetheus(
             "--threads", str(threads),
             "--min-valid-read-coverage", str(min_valid_read_coverage),
             "--output", output,
-            "--batch_size", str(batches)
+            "--batch-size", str(batches)
         ]
 
         subprocess.run([bin_path] + cmd_args, check=True, text=True)

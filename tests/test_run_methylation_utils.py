@@ -1,10 +1,10 @@
-from pymethylation_utils.utils import run_methylation_utils
+from pymethylation_utils.utils import run_epimetheus
 import pytest
 import os
 import platform
 
-def test_run_methylation_utils(capsys):
-    code = run_methylation_utils(
+def test_run_epimetheus(capsys):
+    code = run_epimetheus(
         pileup = "p",
         assembly = "a",
         motifs = ["m"],
@@ -17,7 +17,7 @@ def test_run_methylation_utils(capsys):
 
 def test_file_exists():
     system = platform.system()
-    tool = "epimethus"
+    tool = "epimetheus"
     if system == "Windows":
         tool += ".exe"
 
@@ -45,7 +45,7 @@ def test_actual_run(cleanup_output):
     print("File exists:", os.path.exists(bed))
     print("File exists:", os.path.exists(assembly))
 
-    code = run_methylation_utils(
+    code = run_epimetheus(
         pileup = bed,
         assembly = assembly,
         motifs = ["GATC_a_1"],
