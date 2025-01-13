@@ -5,7 +5,7 @@ import platform
 import logging
 
 
-def run_methylation_utils(
+def run_epimetheus(
     pileup,
     assembly,
     motifs,
@@ -20,21 +20,22 @@ def run_methylation_utils(
     # Path to the downloaded binary
     bin_dir = os.path.join(os.path.dirname(__file__), "bin")
 
-    tool = "methylation_utils"
+    tool = "epimetheus"
     if system == "Windows":
         tool += ".exe"
     bin_path = os.path.join(bin_dir, tool)
 
-    logger.info("Running methylation_utils")
+    logger.info("Running epimetheus")
     try:
         cmd_args = [
+            "methylation-pattern",
             "--pileup", pileup,
             "--assembly", assembly,
             "--motifs", *motifs,
             "--threads", str(threads),
             "--min-valid-read-coverage", str(min_valid_read_coverage),
             "--output", output,
-            "--batches", str(batches)
+            "--batch-size", str(batches)
         ]
 
         subprocess.run([bin_path] + cmd_args, check=True, text=True)

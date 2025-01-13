@@ -1,4 +1,4 @@
-pymethylation_utils/bin/methylation_utils*
+pymethylation_utils/bin/epimetheus*
 !pymethylation_utils/bin/.gitkeep
  
 #  # Byte-compiled / optimized / DLL files
