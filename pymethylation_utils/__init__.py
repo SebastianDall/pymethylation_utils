@@ -9,9 +9,9 @@ import re
 
 # Define the URL for the binary based on the platform
 EPIMETHEUS_URL = {
-    "Linux": "https://github.com/SebastianDall/epimetheus/releases/download/v0.5.1/epimetheus-linux",
-    "Windows": "https://github.com/SebastianDall/epimetheus/releases/download/v0.5.1/epimetheus-windows.exe",
-    "Darwin": "https://github.com/SebastianDall/epimetheus/releases/download/v0.5.1/epimetheus-macos",
+    "Linux": "https://github.com/SebastianDall/epimetheus/releases/download/v0.5.2/epimetheus-linux",
+    "Windows": "https://github.com/SebastianDall/epimetheus/releases/download/v0.5.2/epimetheus-windows.exe",
+    "Darwin": "https://github.com/SebastianDall/epimetheus/releases/download/v0.5.2/epimetheus-macos",
 }
 
 def extract_version_from_url(url):
